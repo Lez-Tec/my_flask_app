@@ -1,10 +1,11 @@
 from flask import Flask
+from controllers import home_controller, users_controller
 
 app = Flask(__name__)
 
-@app.route("/")
-def home():
-    return "Hello, Lesego! Your app is LIVE on the cloud!"
+# Routes
+app.add_url_rule("/", "home", home_controller)
+app.add_url_rule("/users", "users", users_controller)
 
 if __name__ == "__main__":
-    app.run()
+    app.run(debug=True)
